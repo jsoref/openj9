@@ -1198,7 +1198,7 @@ MM_MemorySubSpaceTarok::timeForHeapContract(MM_EnvironmentBase *env, MM_Allocate
  * 1) The heap free ratio multipliers
  * 2) The heap maximum/minimum contraction sizes
  * 3) The heap alignment
- * @note We use the approximate heap size to account for defered work that may during execution free up more memory.
+ * @note We use the approximate heap size to account for deferred work that may during execution free up more memory.
  * @todo Explain what the fudge factors of +5 and +1 mean
  * @return the recommended amount of heap in bytes to contract.
  */
@@ -1276,7 +1276,7 @@ MM_MemorySubSpaceTarok::calculateTargetContractSize(MM_EnvironmentBase *env, UDA
 
 /**
  * Determine how much space we need to expand the heap by on this GC cycle to meet the users specified -Xminf amount
- * @note We use the approximate heap size to account for defered work that may during execution free up more memory.
+ * @note We use the approximate heap size to account for deferred work that may during execution free up more memory.
  * @param expandToSatisfy - if TRUE ensure we epxand heap by at least "byteRequired" bytes
  * @return Number of bytes required or 0 if current free already meets the desired bytes free
  */
@@ -1378,7 +1378,7 @@ MM_MemorySubSpaceTarok::calculateCollectorExpandSize(MM_EnvironmentBase *env)
 
 /**
  * Determine if a  expand is required 
- * @note We use the approximate heap size to account for defered work that may during execution free up more memory.
+ * @note We use the approximate heap size to account for deferred work that may during execution free up more memory.
  * @return expand size if ratio expand required or 0 otherwise
  */
 UDATA
