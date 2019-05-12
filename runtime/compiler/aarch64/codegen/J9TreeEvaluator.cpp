@@ -4168,7 +4168,7 @@ J9::ARM64::TreeEvaluator::evaluateNULLCHKWithPossibleResolve(TR::Node *node, boo
             {
             if (comp->getOption(TR_TraceCG))
                {
-               traceMsg(comp, "\nExcplicit NULLCHK on interface call [%p]\n", firstChild);
+               traceMsg(comp, "\nExplicit NULLCHK on interface call [%p]\n", firstChild);
                }
             }
          }
