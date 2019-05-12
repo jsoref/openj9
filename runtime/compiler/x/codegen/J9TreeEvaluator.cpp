@@ -7865,7 +7865,7 @@ J9::X86::TreeEvaluator::VMnewEvaluator(
 #ifdef TR_TARGET_64BIT
    if (isArrayNew)
       {
-      // Initialize dataAddr field to address of the first array elememt, address following the array header in our case.
+      // Initialize dataAddr field to address of the first array element, address following the array header in our case.
       TR::MemoryReference *dataAddrSlotMR = NULL;
       TR::MemoryReference *dataAddrMR = NULL;
       if (TR::Compiler->om.compressObjectReferences() && NULL != sizeReg)
