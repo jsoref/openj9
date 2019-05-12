@@ -4159,7 +4159,7 @@ J9::ARM64::TreeEvaluator::evaluateNULLCHKWithPossibleResolve(TR::Node *node, boo
          TR::SymbolReference *methodSymRef = firstChild->getSymbolReference();
          TR::MethodSymbol *methodSymbol = methodSymRef->getSymbol()->castToMethodSymbol();
          // Currently, we do not have instructions to access receiver for interface calls in main line code.
-         // Thus, we need to do null check explictly.
+         // Thus, we need to do null check explicitly.
          if (!methodSymbol->isInterface())
             {
             needExplicitCheck = false;
