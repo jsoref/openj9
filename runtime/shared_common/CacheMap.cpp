@@ -6793,7 +6793,7 @@ SH_CacheMap::getPrereqCache(J9VMThread* currentThread, const char* cacheDir, SH_
 		return 0;
 	}
 
-	/* If there is a pre-requisite cache, then re-requites cache ID is the first metadate item */
+	/* If there is a pre-requisite cache, then re-requites cache ID is the first metadata item */
 	it = (ShcItem*)ccToUse->nextEntry(currentThread, NULL);
 	if (it) {
 		UDATA itemType = ITEMTYPE(it);
