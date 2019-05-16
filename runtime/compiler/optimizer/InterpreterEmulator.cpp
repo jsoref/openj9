@@ -1084,14 +1084,14 @@ InterpreterEmulator::refineResolvedCalleeForInvokestatic(TR_ResolvedMethod *&cal
    }
 
 bool
-InterpreterEmulator::findAndCreateCallsitesFromBytecodes(bool wasPeekingSuccessfull, bool withState)
+InterpreterEmulator::findAndCreateCallsitesFromBytecodes(bool wasPeekingSuccessful, bool withState)
    {
    heuristicTrace(tracer(),"Find and create callsite %s\n", withState ? "with state" : "without state");
 
    TR::Region findCallsitesRegion(comp()->region());
    if (withState)
       initializeIteratorWithState();
-   _wasPeekingSuccessfull = wasPeekingSuccessfull;
+   _wasPeekingSuccessfull = wasPeekingSuccessful;
    _currentInlinedBlock = NULL;
    TR_J9ByteCode bc = first();
    while (bc != J9BCunknown)
