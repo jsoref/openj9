@@ -412,7 +412,7 @@ struct TR_RelocationRecordBlockFrequencyBinaryTemplate: public TR_RelocationReco
    uintptr_t _frequencyOffset;
    };
 
-struct TR_RelocationRecordBreapointGuardBinaryTemplate : public TR_RelocationRecordWithInlinedSiteIndexBinaryTemplate
+struct TR_RelocationRecordBreakpointGuardBinaryTemplate : public TR_RelocationRecordWithInlinedSiteIndexBinaryTemplate
    {
    UDATA _destinationAddress;
    };
@@ -6082,13 +6082,13 @@ TR_RelocationRecordBreakpointGuard::preparePrivateData(TR_RelocationRuntime *rel
 void
 TR_RelocationRecordBreakpointGuard::setDestinationAddress(TR_RelocationTarget *reloTarget, uintptr_t destinationAddress)
    {
-   reloTarget->storeRelocationRecordValue(destinationAddress, (uintptr_t *) &((TR_RelocationRecordBreapointGuardBinaryTemplate *)_record)->_destinationAddress);
+   reloTarget->storeRelocationRecordValue(destinationAddress, (uintptr_t *) &((TR_RelocationRecordBreakpointGuardBinaryTemplate *)_record)->_destinationAddress);
    }
 
 uintptr_t
 TR_RelocationRecordBreakpointGuard::destinationAddress(TR_RelocationTarget *reloTarget)
    {
-   return reloTarget->loadRelocationRecordValue((uintptr_t *) &((TR_RelocationRecordBreapointGuardBinaryTemplate *)_record)->_destinationAddress);
+   return reloTarget->loadRelocationRecordValue((uintptr_t *) &((TR_RelocationRecordBreakpointGuardBinaryTemplate *)_record)->_destinationAddress);
    }
 
 int32_t
@@ -6220,6 +6220,6 @@ uint32_t TR_RelocationRecord::_relocationRecordHeaderSizeTable[TR_NumExternalRel
    sizeof(TR_RelocationRecordInlinedMethodBinaryTemplate),                           // TR_InlinedStaticMethod                          = 104
    sizeof(TR_RelocationRecordInlinedMethodBinaryTemplate),                           // TR_InlinedSpecialMethod                         = 105
    sizeof(TR_RelocationRecordInlinedMethodBinaryTemplate),                           // TR_InlinedAbstractMethod                        = 106
-   sizeof(TR_RelocationRecordBreapointGuardBinaryTemplate),                          // TR_Breakpoint                                   = 107
+   sizeof(TR_RelocationRecordBreakpointGuardBinaryTemplate),                          // TR_Breakpoint                                   = 107
    sizeof(TR_RelocationRecordWithInlinedSiteIndexBinaryTemplate),                    // TR_InlinedMethodPointer                         = 108
    };
