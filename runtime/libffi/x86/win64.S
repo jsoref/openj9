@@ -19,7 +19,7 @@
 #ifdef _MSC_VER
 PUBLIC	ffi_call_win64
 
-EXTRN	__chkstk:NEAR
+EXTRN	__checkstk:NEAR
 EXTRN	ffi_closure_win64_inner:NEAR
 
 _TEXT	SEGMENT
@@ -97,7 +97,7 @@ ffi_call_win64 PROC FRAME
 	mov	eax, DWORD PTR CIF_BYTES[rbp]
 	add	rax, 15
 	and	rax, -16
-	call	__chkstk
+	call	__checkstk
 	sub	rsp, rax
 	lea	rax, QWORD PTR [rsp+32]
 	mov	QWORD PTR STACK[rbp], rax

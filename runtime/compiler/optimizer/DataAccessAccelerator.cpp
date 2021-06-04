@@ -2394,7 +2394,7 @@ bool TR_DataAccessAccelerator::generateUD2PD(TR::TreeTop* treeTop, TR::Node* cal
       pdstoreNode->setSymbolReference(symRefStore);
       pdstoreNode->setDecimalPrecision(prec);
 
-      //set up bndchks, and null chks
+      //set up bndchecks, and null checks
       TR::Node * pdPassThroughNode = TR::Node::create(TR::PassThrough, 1, pdNode);
       TR::Node * decimalPassThroughNode = TR::Node::create(TR::PassThrough, 1, decimalNode);
 
@@ -2599,7 +2599,7 @@ bool TR_DataAccessAccelerator::generatePD2UD(TR::TreeTop* treeTop, TR::Node* cal
       decimalStore->setSymbolReference(symRefDecimalStore);
       decimalStore->setDecimalPrecision(precNode->getInt());
 
-      //set up bndchks, and null chks
+      //set up bndchecks, and null checks
       TR::Node * pdPassThroughNode = TR::Node::create(TR::PassThrough, 1, pdNode);
       TR::Node * decimalPassThroughNode = TR::Node::create(TR::PassThrough, 1, decimalNode);
       int elementSize = isPD2UD ? TR::DataType::getUnicodeElementSize() : TR::DataType::getZonedElementSize();
