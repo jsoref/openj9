@@ -546,7 +546,7 @@ static void VMnonNullSrcWrtBarCardCheckEvaluator(TR::Node *node, TR::Register *s
 
    if (gcMode != gc_modron_wrtbar_always && !comp->getOptions()->realTimeGC())
       {
-      bool inlineCrdmrk = (doCrdMrk && !definitelyNonHeapObject);
+      bool inlineCrdMrk = (doCrdMrk && !definitelyNonHeapObject);
       // object header flags now occupy 4bytes (instead of 8) on 64-bit. Keep it in temp1Reg for following checks.
 
       TR::Register *metaReg = cg->getMethodMetaDataRegister();
@@ -566,7 +566,7 @@ static void VMnonNullSrcWrtBarCardCheckEvaluator(TR::Node *node, TR::Register *s
       if (!flagsInTemp1)
          generateTrg1MemInstruction(cg, TR::InstOpCode::lwz, node, temp1Reg, TR::MemoryReference::createWithDisplacement(cg, dstReg, getOffsetOfJ9ObjectFlags(), 4));
 
-      if (inlineCrdmrk)
+      if (inlineCrdMrk)
          {
          TR::LabelSymbol *noChkLabel = NULL;
 
