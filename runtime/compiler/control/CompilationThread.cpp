@@ -362,7 +362,7 @@ int inflateBuffer(U_8 *buffer, int numberOfBytes, U_8 *outBuffer, int unCompress
  *    level Level of compression
  *
  * \return
- *    If successful, returns Size of data in the deflated bufer
+ *    If successful, returns Size of data in the deflated buffer
  *    else returns COMPRESSION_FAILED
  *
  */
