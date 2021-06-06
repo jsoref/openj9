@@ -1277,7 +1277,7 @@ MM_MemorySubSpaceTarok::calculateTargetContractSize(MM_EnvironmentBase *env, UDA
 /**
  * Determine how much space we need to expand the heap by on this GC cycle to meet the users specified -Xminf amount
  * @note We use the approximate heap size to account for deferred work that may during execution free up more memory.
- * @param expandToSatisfy - if TRUE ensure we epxand heap by at least "byteRequired" bytes
+ * @param expandToSatisfy - if TRUE ensure we expand heap by at least "byteRequired" bytes
  * @return Number of bytes required or 0 if current free already meets the desired bytes free
  */
 UDATA
