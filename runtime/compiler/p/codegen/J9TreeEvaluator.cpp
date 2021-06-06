@@ -11868,7 +11868,7 @@ TR::Register *J9::Power::TreeEvaluator::tstartEvaluator(TR::Node *node, TR::Code
 
    TR::LabelSymbol *labelPersistentFailure = persistentFailureNode->getBranchDestination()->getNode()->getLabel();
    TR::LabelSymbol *labelTransientFailure  = transientFailureNode->getBranchDestination()->getNode()->getLabel();
-   TR::LabelSymbol *labelfallThrough  = fallThrough->getBranchDestination()->getNode()->getLabel();
+   TR::LabelSymbol *labelFallThrough  = fallThrough->getBranchDestination()->getNode()->getLabel();
    TR::LabelSymbol *startLabel = generateLabelSymbol(cg);
    TR::LabelSymbol *lockwordLabel = generateLabelSymbol(cg);
    TR::LabelSymbol *noTexStatsLabel = generateLabelSymbol(cg);
@@ -12010,9 +12010,9 @@ TR::Register *J9::Power::TreeEvaluator::tstartEvaluator(TR::Node *node, TR::Code
    else
       {
       if (fallThroughConditions)
-         generateDepLabelInstruction(cg, TR::InstOpCode::b, node, labelfallThrough, fallThroughConditions);
+         generateDepLabelInstruction(cg, TR::InstOpCode::b, node, labelFallThrough, fallThroughConditions);
       else
-         generateLabelInstruction(cg, TR::InstOpCode::b, node, labelfallThrough);
+         generateLabelInstruction(cg, TR::InstOpCode::b, node, labelFallThrough);
       }
 
    cg->stopUsingRegister(monReg);
