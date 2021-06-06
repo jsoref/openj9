@@ -1859,7 +1859,7 @@ MM_CopyForwardScheme::discardRemainingCache(MM_EnvironmentVLHGC *env, MM_CopySca
 		cacheLock->acquire();
 		UDATA totalFreeToReturn = wastedMemory + discardSize;
 
-		/* TODO: recycling remanining cache, maybe can connect to one exist free memory or build thread local list of remainders(per compactGroup) */
+		/* TODO: recycling remaining cache, maybe can connect to one exist free memory or build thread local list of remainders(per compactGroup) */
 		if (0 != totalFreeToReturn) {
 			pool->incrementDarkMatterBytes(totalFreeToReturn);
 			pool->fillWithHoles((void *)cacheAlloc, (void *)cacheTop);
