@@ -277,7 +277,7 @@ public:
    using KnownIdSet = PersistentUnorderedSet<uintptr_t/*recordIdAndType*/>;
 
    // Get serialization records the method refers to, excluding the ones already
-   // present in the knownIds set (i.e. already deseralized at the client)
+   // present in the knownIds set (i.e. already deserialized at the client)
    Vector<const AOTSerializationRecord *>
    getSerializationRecords(const CachedAOTMethod *method, const KnownIdSet &knownIds, TR_Memory &trMemory) const;
 
