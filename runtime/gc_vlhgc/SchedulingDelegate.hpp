@@ -240,9 +240,9 @@ private:
 	/**
 	 * Estimate total free memory
 	 * @param env[in] the main GC thread
-	 * @oaram freeRegionMemory[in]
+	 * @param freeRegionMemory[in]
 	 * @param defragmentedMemory[in]
-	 * @oaram reservedFreeMemory[in]
+	 * @param reservedFreeMemory[in]
 	 * @return total free memory(bytes)
 	 */
 	UDATA estimateTotalFreeMemory(MM_EnvironmentVLHGC *env, UDATA freeRegionMemory, UDATA defragmentedMemory, UDATA reservedFreeMemory);

@@ -285,7 +285,7 @@ public:
 	 * also assumes that the cpIndex points to an instance field.
 	 *
 	 * @param currentThread thread token
-	 * @oaram objectAccessBarrier access barrier
+	 * @param objectAccessBarrier access barrier
 	 * @param objectAllocate allocator
 	 * @param cpEntry the RAM cpEntry for the field, needs to be resolved
 	 * @param receiver receiver object
@@ -350,7 +350,7 @@ done:
 	 * Performs a clone operation on an object.
 	 *
 	 * @param currentThread thread token
-	 * @oaram objectAccessBarrier access barrier
+	 * @param objectAccessBarrier access barrier
 	 * @param objectAllocate allocator
 	 * @param receiverClass j9class of original object
 	 * @param original object to be cloned
@@ -393,7 +393,7 @@ done:
 	 * also assumes that the cpIndex points to an instance field.
 	 *
 	 * @param currentThread thread token
-	 * @oaram objectAccessBarrier access barrier
+	 * @param objectAccessBarrier access barrier
 	 * @param cpEntry the RAM cpEntry for the field, needs to be resolved
 	 * @param receiver receiver object
 	 * @param paramObject parameter object
