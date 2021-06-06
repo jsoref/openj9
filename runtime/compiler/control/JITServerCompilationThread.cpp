@@ -172,7 +172,7 @@ outOfProcessCompilationEnd(
    JITServer::ServerMemoryState memoryState = computeServerMemoryState(compInfoPT->getCompilationInfo());
    JITServer::ServerActiveThreadsState activeThreadState = computeServerActiveThreadsState(compInfoPT->getCompilationInfo());
 
-   // Send methods requring resolved trampolines in this compilation to the client
+   // Send methods requiring resolved trampolines in this compilation to the client
    std::vector<TR_OpaqueMethodBlock *> methodsRequiringTrampolines;
    if (comp->getMethodsRequiringTrampolines().size() > 0)
       {
