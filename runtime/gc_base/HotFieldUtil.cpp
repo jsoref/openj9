@@ -127,7 +127,7 @@ MM_HotFieldUtil::sortClassHotFieldList(J9JavaVM *javaVM, J9ClassHotFieldsInfo* h
 			hotFieldClassInfo->hotFieldOffset3 = U_8_MAX;
 		}
 	}
-	/* if permanantHotFields are allowed, update consecutiveHotFieldSelections counter if hot field offsets are the same as the previous time the class hot field list was sorted  */
+	/* if permanentHotFields are allowed, update consecutiveHotFieldSelections counter if hot field offsets are the same as the previous time the class hot field list was sorted  */
 	if (extensions->allowPermanantHotFields) {
 		if ((initialHotFieldOffset1 == hotFieldClassInfo->hotFieldOffset1) && (initialHotFieldOffset2 == hotFieldClassInfo->hotFieldOffset2) && (initialHotFieldOffset3 == hotFieldClassInfo->hotFieldOffset3)) {
 			hotFieldClassInfo->consecutiveHotFieldSelections++;
