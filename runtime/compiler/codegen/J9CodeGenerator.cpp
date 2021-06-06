@@ -104,7 +104,7 @@ static TR::Node *lowerCASValues(
       int32_t childNum,
       TR::Node *address,
       TR::Compilation *comp,
-      TR::Node *shftOffset,
+      TR::Node *shiftOffset,
       bool isLowMem,
       TR::Node *heapBase)
    {
@@ -142,9 +142,9 @@ static TR::Node *lowerCASValues(
             addNode->setIsNonZero(true);
          }
 
-      if (shftOffset)
+      if (shiftOffset)
          {
-         addNode = TR::Node::create(TR::lushr, 2, addNode, shftOffset);
+         addNode = TR::Node::create(TR::lushr, 2, addNode, shiftOffset);
          addNode->setContainsCompressionSequence(true);
          }
 
@@ -231,14 +231,14 @@ J9::CodeGenerator::lowerCompressedRefs(
          TR::Node *valueChild = node->getChild(nextChild);
          if (valueChild->getOpCode().is8Byte())
             {
-            TR::Node *shftOffset = NULL;
+            TR::Node *shiftOffset = NULL;
             if (TR::Compiler->om.compressedReferenceShiftOffset() > 0)
                {
-               shftOffset = TR::Node::create(node, TR::iconst, 0, TR::Compiler->om.compressedReferenceShiftOffset());
+               shiftOffset = TR::Node::create(node, TR::iconst, 0, TR::Compiler->om.compressedReferenceShiftOffset());
                }
 
             TR::Node *heapBase = TR::Node::create(node, TR::lconst, 0, 0);
-            lowerCASValues(node, nextChild, valueChild, self()->comp(), shftOffset, true, heapBase);
+            lowerCASValues(node, nextChild, valueChild, self()->comp(), shiftOffset, true, heapBase);
             }
          }
 
@@ -261,7 +261,7 @@ J9::CodeGenerator::lowerCompressedRefs(
                         i2l
                           iiload f
                             aload O
-                        iconst shftKonst
+                        iconst shiftKonst
                       lconst HB
 
     -or- if the field is known to be null
@@ -279,7 +279,7 @@ J9::CodeGenerator::lowerCompressedRefs(
                           a2l
                             aload O
                           lconst HB
-                        iconst shftKonst
+                        iconst shiftKonst
 
     -or- if the field is known to be null
     iistore f
@@ -388,9 +388,9 @@ J9::CodeGenerator::lowerCompressedRefs(
    // in future if shifted offsets are used, this value will be
    // a positive non-zero constant
    //
-   TR::Node *shftOffset = NULL;
+   TR::Node *shiftOffset = NULL;
    if (TR::Compiler->om.compressedReferenceShiftOffset() > 0)
-      shftOffset = TR::Node::create(loadOrStoreNode, TR::iconst, 0, TR::Compiler->om.compressedReferenceShiftOffset());
+      shiftOffset = TR::Node::create(loadOrStoreNode, TR::iconst, 0, TR::Compiler->om.compressedReferenceShiftOffset());
 
    if (isLoad)
       {
@@ -416,9 +416,9 @@ J9::CodeGenerator::lowerCompressedRefs(
       // if the load is known to be null or if using lowMemHeap, do not
       // generate a compression sequence
       addNode = iu2lNode;
-      if (shftOffset)
+      if (shiftOffset)
          {
-         addNode = TR::Node::create(TR::lshl, 2, iu2lNode, shftOffset);
+         addNode = TR::Node::create(TR::lshl, 2, iu2lNode, shiftOffset);
          addNode->setContainsCompressionSequence(true);
          }
 
@@ -451,9 +451,9 @@ J9::CodeGenerator::lowerCompressedRefs(
       TR::Node *addNode = NULL;
       addNode = a2lNode;
 
-      if (shftOffset)
+      if (shiftOffset)
          {
-         addNode = TR::Node::create(TR::lushr, 2, addNode, shftOffset);
+         addNode = TR::Node::create(TR::lushr, 2, addNode, shiftOffset);
          addNode->setContainsCompressionSequence(true);
          }
 
