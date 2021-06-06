@@ -259,7 +259,7 @@ public:
       J9SharedClassCacheDescriptor *_j9SharedClassCacheDescriptorList;
       bool _stringCompressionEnabled;
       bool _hasSharedClassCache;
-      bool _elgibleForPersistIprofileInfo;
+      bool _eligibleForPersistIprofileInfo;
       bool _reportByteCodeInfoAtCatchBlock;
       TR_OpaqueClassBlock *_arrayTypeClasses[8];
       TR_OpaqueClassBlock *_byteArrayClass;
