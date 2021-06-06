@@ -49,7 +49,7 @@ private:
 	MM_GenerationalAccessBarrierComponent _generationalAccessBarrierComponent;	/**< Generational Component of Access Barrier */
 #endif /* J9VM_GC_GENERATIONAL */
 #if defined(OMR_GC_REALTIME)
-	bool _doubleBarrierActive; /**< Global indicator that the double barrier is active. New threads will be set to double barrier mode if this falg is true. */
+	bool _doubleBarrierActive; /**< Global indicator that the double barrier is active. New threads will be set to double barrier mode if this flag is true. */
 #endif /* OMR_GC_REALTIME */
 	void postObjectStoreImpl(J9VMThread *vmThread, J9Object *dstObject, J9Object *srcObject);
 	void preBatchObjectStoreImpl(J9VMThread *vmThread, J9Object *dstObject);
